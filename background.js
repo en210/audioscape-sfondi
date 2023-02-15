@@ -16,7 +16,7 @@ function setup(){
 //  mic.getSources()
 //  console.log(getSources())
 //  mic.setSource(0);
-   mic.start()
+//   mic.start()
   analyze_vol=new p5.Amplitude();
    analyze_vol.setInput(mic)
   for(i=0;i<100;i++){
@@ -195,6 +195,7 @@ function mousePressed() {
   // store in a variable the current state
   // by calling “fullscreen” without arguments
   // you get either true or false
+  mic.start();
   if(ct==0){var fs = fullscreen();
   // then enter or exit the full screen mode
   fullscreen(!fs)}
