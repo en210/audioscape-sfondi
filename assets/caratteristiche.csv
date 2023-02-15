@@ -1,0 +1,13 @@
+classe,for,des,cos,int,sag,car
+barbaro,16,14,16,8,10,12
+bardo,8,16,12,14,10,16,
+druido,10,14,16,8,16,12
+chierico,12,8,14,10,16,16
+guerriero,16,14,16,12,10,8
+ladro,10,16,14,16,8,12
+mago,8,16,14,16,12,10
+monaco,12,16,14,8,16,10
+paladino,14,8,16,10,16,16
+ranger,10,14,16,8,16,12
+stregone,8,16,14,10,12,16
+warlock,8,16,12,14,10,16

@@ -1,0 +1,13 @@
+classe,for,des,cos,int,sag,car
+barbaro,1,0,1,0,0,0
+bardo,0,1,0,0,0,1
+druido,0,0,0,1,1,0
+chierico,0,0,0,0,1,1
+guerriero,1,0,1,0,0,0
+ladro,0,1,0,1,0,0
+mago,0,0,0,1,1,0,0
+monaco,1,1,0,0,0,0
+paladino,0,0,0,0,1,1
+ranger,1,1,0,0,0,0
+stregone,0,1,0,0,0,1
+warlock,0,0,0,0,1,1

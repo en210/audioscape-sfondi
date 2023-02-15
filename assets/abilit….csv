@@ -1,0 +1,19 @@
+numero,abilità,caratteristica,
+1,acrobazia,des
+2,addestrare animali,sag
+3,arcana,int
+4,atletica,for
+5,furtività,des
+6,indagine,int
+7,inganno,car
+8,intimidire,car
+9,intrattenere,car
+10,intuizione,sag
+11,medicina,sag
+12,natura,int
+13,percezione,sag
+14,persuasione,car
+15,rapidità di mano,des
+16,religione,int
+17,sopravvivenza,sag
+18,storia,int
