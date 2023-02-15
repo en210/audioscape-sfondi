@@ -4,7 +4,7 @@ var vol;
 var speed=1.02;
 var mic;
 var spectrum=[]
-var ct=-1
+var ct=3
 var msc
 var back
 
