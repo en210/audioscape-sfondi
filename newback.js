@@ -10,7 +10,7 @@ var back
 var waveform
 var fft
 var num_switch
-var strobo
+var strobo = 0
 var bass
 var mid
 var low
@@ -133,6 +133,11 @@ strokeWeight(1)
 
 //}
 
+function mousePressed(){
+getAudioContext().resume();
+
+}
+
 function keyPressed(){
 
   if (keyCode === 49) {
@@ -181,4 +186,8 @@ function Point(){
     };
   }
   this.show=function show(){}
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
