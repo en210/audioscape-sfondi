@@ -4,7 +4,7 @@ var vol;
 var speed=1.02;
 var mic;
 var spectrum=[]
-var ct=3
+var ct=0
 var msc
 var back
 
@@ -16,7 +16,7 @@ function setup(){
 //  mic.getSources()
 //  console.log(getSources())
 //  mic.setSource(0);
-//   mic.start()
+   mic.start()
   analyze_vol=new p5.Amplitude();
    analyze_vol.setInput(mic)
   for(i=0;i<100;i++){
@@ -28,23 +28,25 @@ function setup(){
 }
 
 function draw(){
-  text(ct,150,100,100)
-  text(mouseX,100,100,100)
+
   noStroke()
-  background(0,0,0,5)
+  background(0,0,0,15)
+  if(frameCount%10==0){console.log(ct)
+    console.log(mouseX)
+  console.log(analyze_vol.getLevel()*1000)}
 
 
   for(i=0;i<100;i++){
 
-    if(ct==0){
+    if(ct==1){
       points[i].show=function show(){
 
         //QUESTA RIGA DI CODICE è IMPORTANTE
-        fill(analyze_vol.getLevel()*500,155,255,255)
+        fill(analyze_vol.getLevel()*1000,155,255,255)
 
         ellipse(i*20,
-          height/2-this.y-analyze_vol.getLevel()*100,
-          analyze_vol.getLevel()*mouseX/5,40)
+          height/2-this.y-analyze_vol.getLevel()*500,
+          analyze_vol.getLevel()*mouseX,40)
       //  rotate(this.x)
       }
 
@@ -52,18 +54,18 @@ function draw(){
             points[i].show()
           }
 
-    else if(ct==1){
+    else if(ct==2){
 
       points[i].show=function show(){
 
            ellipseMode(CENTER)
 
               //QUESTA RIGA DI CODICE è IMPORTANTE
-              fill(analyze_vol.getLevel()*500,155,255,255)
+              fill(0,0,analyze_vol.getLevel()*6000,255)
 
               ellipse(width/2+this.x-analyze_vol.getLevel()*100,
                 height/2-this.y-analyze_vol.getLevel()*100,
-                analyze_vol.getLevel()*mouseX/5,20+analyze_vol.getLevel()*mouseX/5)
+                analyze_vol.getLevel()*mouseX,20+analyze_vol.getLevel()*mouseX/2)
             //  rotate(this.x)
             }
 
@@ -71,19 +73,19 @@ function draw(){
                   points[i].show()
                 }
 
-    else if(ct==2){
+    else if(ct==3){
 
       points[i].show=function show(){
 
       ellipseMode(CENTER)
 
       //QUESTA RIGA DI CODICE è IMPORTANTE
-      fill(analyze_vol.getLevel()*500,155,255,255)
+      fill(analyze_vol.getLevel()*1000,155,255,255)
 
       ellipse(i*20+this.x-analyze_vol.getLevel()*100,
       height/2-this.y-analyze_vol.getLevel()*100,
-      analyze_vol.getLevel()*mouseX/10,
-      analyze_vol.getLevel()*mouseX/10)
+      analyze_vol.getLevel()*mouseX/5,
+      analyze_vol.getLevel()*mouseX/5)
                     //  rotate(this.x)
                     }
 
@@ -92,18 +94,18 @@ function draw(){
       }
 
 
-    else if(ct==3){
+    else if(ct==4){
             points[i].show=function show(){
 
                    ellipseMode(CENTER)
 
                       //QUESTA RIGA DI CODICE è IMPORTANTE
-                      fill(155,analyze_vol.getLevel()*500,255,255)
+                      fill(155,analyze_vol.getLevel()*1000,255,255)
 
                       ellipse(width/2+this.x-analyze_vol.getLevel()*100,
                         height/2-this.y-analyze_vol.getLevel()*100,
-                        analyze_vol.getLevel()*mouseX/10,
-                        analyze_vol.getLevel()*mouseX/10)
+                        analyze_vol.getLevel()*mouseX/5,
+                        analyze_vol.getLevel()*mouseX/5)
                         rotate(this.x)
                     }
 
@@ -111,7 +113,7 @@ function draw(){
                           points[i].show()
                   }
 
-                  if(ct==4){
+                  if(ct==5){
                   angleMode(DEGREES)
                         translate(windowWidth/2,windowHeight/2)
 
@@ -195,14 +197,15 @@ function mousePressed() {
   // store in a variable the current state
   // by calling “fullscreen” without arguments
   // you get either true or false
-  mic.start();
   if(ct==0){var fs = fullscreen();
   // then enter or exit the full screen mode
-  fullscreen(!fs)}
+  fullscreen(!fs)
+  ct++
+  }
 
-  else if (ct==3){
-      ct=-1}
-      ct++
+  else if (ct==4){
+      ct=0}
+  else    {ct++}
 }
 
 function windowResized() {
